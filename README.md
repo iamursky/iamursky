@@ -1,6 +1,6 @@
 # Hi! I'm Ilia 👋
 
-I'm a frontend developer with 12 years of experience building a wide range of products — from startups to enterprise solutions. I specialize in React.js, Next.js, and Expo, delivering high-quality work in the face of changing requirements.
+I'm a frontend developer with over a decade of experience building a wide range of products — from startups to enterprise solutions. I specialize in Next.js, React, and TypeScript, consistently delivering high-quality work in the face of changing business requirements.
 
 **How to reach me:**
 * [LinkedIn](https://www.linkedin.com/in/iamursky/)
