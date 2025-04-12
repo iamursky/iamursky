@@ -9,6 +9,6 @@ I'm a senior frontend engineer with over a decade of experience building a wide 
 
 ## Sponsor my Open Source Project
 
-I create apps that help people stay healthy, study, and be productive. My apps are completely free to ensure they’re accessible to everyone around the world. By sponsoring my work, you help make it possible.
+I create apps that help people stay healthy, study, and be productive. My apps are completely free to ensure they’re accessible to everyone around the world. By sponsoring my work, you make it possible.
 
 * [Patreon](patreon.com/ilya_amursky)
