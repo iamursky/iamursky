@@ -7,8 +7,6 @@ I'm a senior frontend engineer with over a decade of experience building a wide 
 * [LinkedIn](https://www.linkedin.com/in/iamursky/)
 * [Upwork](https://www.upwork.com/freelancers/~01a612ca43b89af5d4)
 
-## Sponsor my Open Source Project
+## Open Source
 
-I create apps that help people.
-
-* [Patreon](patreon.com/ilya_amursky)
+I create apps that help people. Sponsor my work on [Patreon](patreon.com/ilya_amursky).
