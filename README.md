@@ -6,3 +6,5 @@ I'm a senior frontend engineer with over a decade of experience building a wide 
 
 * [LinkedIn](https://www.linkedin.com/in/iamursky/)
 * [Upwork](https://www.upwork.com/freelancers/~01a612ca43b89af5d4)
+* [Freelancer](https://www.freelancer.com/u/ievseev)
+* 
