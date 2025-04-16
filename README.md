@@ -1,4 +1,4 @@
-# Hi! I'm Ilya 👋
+# Hi! I'm Ilia 👋
 
 I'm a senior frontend engineer with over a decade of experience building a wide range of products — from startups to enterprise solutions. I specialize in React, Next.js and TypeScript, delivering high-quality work in the face of changing business requirements.
 
