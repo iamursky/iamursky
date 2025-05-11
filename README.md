@@ -1,4 +1,4 @@
-# Hi! I'm Ilia 👋
+# Hi! I'm Ilya 👋
 
 I'm a frontend engineer with a decade of experience building a wide range of products — from startups to enterprise solutions. I specialize in Next.js, Expo and TypeScript, delivering high-quality work in the face of changing business requirements.
 
