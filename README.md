@@ -6,4 +6,3 @@ I'm a frontend engineer with a decade of experience building a wide range of pro
 
 * [LinkedIn](https://www.linkedin.com/in/iamursky/)
 * [Upwork](https://www.upwork.com/freelancers/~01a612ca43b89af5d4)
-* [Freelancer](https://www.freelancer.com/u/ievseev)
