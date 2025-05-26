@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-noto-serif: var(--font-noto-serif);
+}
