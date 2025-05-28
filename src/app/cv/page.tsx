@@ -2,33 +2,95 @@ import type { Metadata } from "next";
 
 import Image from "next/image";
 
+import { ExperienceItem, TExperienceItem } from "./experience-item";
+
+import { EducationItem, TEducationItem } from "./education-item";
 import photo from "./images/avatar.jpg";
 import b6cloud from "./images/b6cloud.jpeg";
 import exante from "./images/exante.jpeg";
-import ksf from "./images/ksf.jpeg";
 import pnu from "./images/pnu.jpeg";
 import stecpoint from "./images/stecpoint.jpeg";
 
 export const metadata: Metadata = {
   title: "Ilya Evseev — Senior Frontend Engineer",
   description:
-    "Senior frontend engineer with over 12 years of experience in building complex web applications, team leading, project management, and collaboration with stakeholders, resulting in business growth and delivering solutions that meet global standards.",
+    "Senior frontend engineer with 12 years of experience in building complex web applications, team leading, project management, and collaboration with stakeholders, resulting in business growth and delivering solutions that meet global standards.",
 };
 
 export default function Page() {
   return (
-    <div className="mx-auto flex w-full max-w-3xl flex-col p-6">
-      <h1 className="text-3xl leading-none font-bold">Ilya Evseev — Senior Frontend Engineer</h1>
+    <div className="mx-auto flex w-full max-w-3xl flex-col">
+      <section>
+        <div className="flex flex-row-reverse gap-8">
+          <div className="relative h-40 w-40 overflow-hidden rounded-sm">
+            <Image
+              priority
+              src={photo}
+              alt="Ilya Evseev's Photo"
+              className="absolute"
+              objectFit="cover"
+              objectPosition="center"
+              layout="fill"
+            />
+          </div>
+          <div className="flex-1 py-2">
+            <h1 className="mb-4 text-2xl font-bold">Ilya Evseev — Senior Frontend Engineer</h1>
 
-      <section className="mt-6 flex items-center gap-8">
-        <Image
-          priority
-          src={photo}
-          alt="Ilya Evseev's Photo"
-          className="not-sr-only h-44 w-auto overflow-hidden rounded-xl"
-        />
-        <div className="flex flex-1 flex-col gap-3">
-          <h2 className="sr-only">Contacts</h2>
+            <h2 className="sr-only">Summary</h2>
+            <p className="leading-relaxed">
+              Senior frontend engineer with over 12 years of experience in building complex web
+              applications, team leading, project management, and collaboration with stakeholders,
+              resulting in business growth and delivering solutions that meet global standards.
+            </p>
+
+            <h3 className="my-4 text-lg leading-none font-bold">Technical Skills</h3>
+            <div className="flex flex-col gap-3">
+              <p className="leading-none">
+                <span className="font-bold">Languages: </span>
+                <span>TypeScript, JavaScript, HTML, CSS</span>
+              </p>
+              <p className="leading-none">
+                <span className="font-bold">Frameworks: </span>
+                <span>React, Next.js, Tailwind CSS</span>
+              </p>
+              <p className="leading-none">
+                <span className="font-bold">Databases: </span>
+                <span>PostgreSQL, Firestore, MongoDB</span>
+              </p>
+              <p className="leading-none">
+                <span className="font-bold">Platforms: </span>
+                <span>AWS, GCP, Supabase, Firebase</span>
+              </p>
+              <p className="leading-none">
+                <span className="font-bold">Tools: </span>
+                <span>Figma, Photoshop, Illustrator</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mt-4">
+        <h2 className="mb-6 text-2xl leading-none font-bold">Experience</h2>
+        <div className="flex flex-col gap-6">
+          {EXPERIENCE.map((experience) => (
+            <ExperienceItem key={experience.companyName} {...experience} />
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-4 break-before-page">
+        <h2 className="mb-6 text-2xl leading-none font-bold">Education</h2>
+        <div className="flex flex-col gap-8">
+          {EDUCATION.map((education) => (
+            <EducationItem key={education.schoolName} {...education} />
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-4">
+        <h2 className="mb-6 text-2xl leading-none font-bold">Contacts</h2>
+        <div className="ml-6 flex flex-col gap-3">
           <p className="leading-none">
             <span className="font-bold">Email: </span>
             <a href="mailto:ilia.evseev@icloud.com">ilia.evseev@icloud.com</a>
@@ -59,146 +121,85 @@ export default function Page() {
           </p>
         </div>
       </section>
-
-      <section className="mt-6">
-        <h2 className="mb-4 text-2xl leading-none font-bold">Summary</h2>
-        <p className="leading-relaxed">
-          Senior frontend engineer with over 12 years of experience in building complex web
-          applications, team leading, project management, and collaboration with stakeholders,
-          resulting in business growth and delivering solutions that meet global standards.
-        </p>
-
-        <h3 className="my-4 text-lg leading-none font-bold">Technical Skills</h3>
-        <div className="flex flex-col gap-3">
-          <p className="leading-none">
-            <span className="font-bold">Languages: </span>
-            <span>TypeScript, JavaScript, HTML, CSS</span>
-          </p>
-          <p className="leading-none">
-            <span className="font-bold">Frameworks: </span>
-            <span>Next.js, Vite, Tailwind CSS</span>
-          </p>
-          <p className="leading-none">
-            <span className="font-bold">Platforms: </span>
-            <span>AWS, GCP, Firebase, Supabase</span>
-          </p>
-          <p className="leading-none">
-            <span className="font-bold">Databases: </span>
-            <span>PostgreSQL, Firestore, MongoDB</span>
-          </p>
-          <p className="leading-none">
-            <span className="font-bold">Tools: </span>
-            <span>Figma, Adobe XD, Photoshop, Illustrator</span>
-          </p>
-        </div>
-      </section>
-
-      <section className="mt-6">
-        <h2 className="mb-6 text-2xl leading-none font-bold">Experience</h2>
-
-        <div className="flex flex-col gap-6">
-          <div className="flex gap-4">
-            <Image src={exante} alt="Exante Logo" loading="lazy" className="h-12 w-12" />
-            <div className="flex flex-col gap-2">
-              <h3 className="text-lg font-bold">Senior JavaScript Engineer, Exante</h3>
-              <p className="leading-none">United Kingdom · Remote · Contract</p>
-              <p className="leading-none">Feb 2023 &ndash; Mar 2025 · 2 years</p>
-              <p className="leading-relaxed">
-                Developed a KYC (Know Your Client) module that is used by thousands of clients and
-                allows the company to comply with global regulatory standards in over 100 countries.
-              </p>
-              <p className="leading-none">
-                <span className="font-bold">Tech Stack: </span>TypeScript, React, Redux, Material UI
-              </p>
-            </div>
-          </div>
-
-          <div className="flex gap-4">
-            <Image src={b6cloud} alt="B6 Cloud Logo" loading="lazy" className="h-12 w-12" />
-            <div className="flex flex-col gap-2">
-              <h3 className="text-lg font-bold">Founding Frontend Engineer, B6 Cloud</h3>
-              <p className="leading-none">United States · Remote · Contract</p>
-              <p className="leading-none">Feb 2020 &ndash; Jan 2023 · 3 years</p>
-              <p className="leading-relaxed">
-                Partnered with the founder to refine the company strategy while developing the
-                frontend, resulting in partnership with Atlassian.
-              </p>
-              <p className="leading-none">
-                <span className="font-bold">Tech Stack: </span>TypeScript, React, Next.js, Effector,
-                Ant Design
-              </p>
-            </div>
-          </div>
-
-          <div className="flex gap-4">
-            <Image src={stecpoint} alt="StecPoint Logo" loading="lazy" className="h-12 w-12" />
-            <div className="flex flex-col gap-2">
-              <h3 className="text-lg font-bold">Senior Frontend Engineer, StecPoint</h3>
-              <p className="leading-none">United Kingdom · Remote · Contract</p>
-              <p className="leading-none">Apr 2019 &ndash; Jan 2020 · 1 year</p>
-              <p className="leading-relaxed">
-                Built a project management platform for a national construction company that built
-                historical buildings such as the State Kremlin Palace and the Cathedral of Christ
-                the Saviour. The platform increased the efficiency of its construction sites by 30%.
-              </p>
-              <p className="leading-none">
-                <span className="font-bold">Tech Stack: </span>TypeScript, React, Redux, Syncfusion
-                UI
-              </p>
-            </div>
-          </div>
-
-          <div className="flex gap-4">
-            <Image
-              src={ksf}
-              alt="Regional Agricultural Fund Logo"
-              loading="lazy"
-              className="h-12 w-12"
-            />
-            <div className="flex flex-col gap-2">
-              <h3 className="text-lg font-bold">
-                Software Project Lead, Regional Agricultural Fund
-              </h3>
-              <p className="leading-none">Russia · On-Site · Contract</p>
-              <p className="leading-none">Dec 2018 &ndash; Mar 2019 · 1 year</p>
-              <p className="leading-relaxed">
-                Built a service for an agricultural fund that enabled farmers to receive over 100
-                million rubles in investments for the development of their households.
-              </p>
-              <p className="leading-none">
-                <span className="font-bold">Tech Stack: </span>TypeScript, React, Redux, Bootstrap
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="mt-6">
-        <h2 className="mb-6 text-2xl leading-none font-bold">Education</h2>
-        <div className="flex flex-col gap-8">
-          <div className="flex gap-4">
-            <Image
-              src={pnu}
-              alt="Pacific National University Logo"
-              loading="lazy"
-              className="h-12 w-12"
-            />
-            <div className="flex flex-col gap-2">
-              <h3 className="text-lg font-bold">Pacific National University</h3>
-              <p className="leading-none">BACs, Information Technology in Physics</p>
-              <p className="leading-none">2013 &ndash; 2017 · 4 years</p>
-              <p className="leading-relaxed">
-                • Created a game for a robotics festival in partnership with one of the largest
-                mobile network operators in Russia.
-              </p>
-              <p className="leading-relaxed">
-                • Co-founded a student community where mentored over 30 people in web development,
-                helping them secure their first jobs.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
+
+const EXPERIENCE: TExperienceItem[] = [
+  {
+    logo: exante,
+    position: "Senior Frontend Developer",
+    companyName: "Exante",
+    duration: "Feb 2023 – Mar 2025 · 2 years",
+    location: "United Kingdom · Remote · Contract",
+    bullets: [
+      "Developed a KYC (Know Your Customer) module with complex question logic using React, Redux, and TypeScript, ensuring compliance with global regulatory standards.",
+      "Contributed to the UI component library using Storybook, Material UI, React, and TypeScript.",
+    ],
+    techStack: "React, Redux, Material UI, TypeScript",
+  },
+  {
+    logo: b6cloud,
+    position: "Founding Frontend Developer",
+    companyName: "B6 Cloud",
+    duration: "Feb 2020 – Jan 2023 · 3 years",
+    location: "United States · Remote · Contract",
+    bullets: [
+      "Actively collaborated with the founder to refine the company's strategy",
+      "Developed a rich-text editor using Tiptap, React, and TypeScript",
+      "Implemented product UI using React, Ant Design, Zustand and TypeScript",
+    ],
+    techStack: "Next.js, Zustand, Ant Design, TypeScript",
+  },
+  {
+    logo: stecpoint,
+    position: "Senior Frontend Developer",
+    companyName: "StecPoint",
+    duration: "Mar 2017 – Feb 2020 · 3 years",
+    location: "United Kingdom · Remote · Contract",
+    bullets: [
+      "Built a project management platform for a construction company using React and TypeScript",
+      "Contributed to the UI component library using Storybook, Syncfusion, React, and TypeScript",
+    ],
+    techStack: "React, Redux, Syncfusion, TypeScript",
+  },
+  // {
+  //   logo: ksf,
+  //   position: "Freelance Web Developer",
+  //   companyName: "Regional Agricultural Fund",
+  //   duration: "Sep 2016 – Feb 2017 · 6 month",
+  //   location: "Russia · On-Site · Contract",
+  //   bullets: [
+  //     "Secured a contract and led product development of a service for a regional agricultural fund",
+  //     "Built the product UI using React, Redux, and TypeScript",
+  //     "Built an Excel-like table for tracking household expenses using React and TypeScript",
+  //   ],
+  //   techStack: "TypeScript, React, Redux, Bootstrap",
+  // },
+  // {
+  //   logo: html_academy,
+  //   position: "React.js and JavaScript Mentor",
+  //   companyName: "HMTL Academy",
+  //   duration: "Jan 2014 – Mar 2017 · 3 years",
+  //   location: "Russia · Remote · Contract",
+  //   bullets: [
+  //     "Secured a contract and led product development of a service for a regional agricultural fund",
+  //     "Built the product UI using React, Redux, and TypeScript",
+  //     "Built an Excel-like table for tracking household expenses using React and TypeScript",
+  //   ],
+  //   techStack: "React, Redux, Bootstrap, TypeScript",
+  // },
+];
+
+const EDUCATION: TEducationItem[] = [
+  {
+    logo: pnu,
+    title: "BACs, Information Technology in Physics",
+    schoolName: "Pacific National University",
+    duration: "2013 – 2017 · 4 years",
+    bullets: [
+      "Created a game for a robotics festival in partnership with one of the largest mobile network operators in Russia.",
+      "Co-founded a student community where mentored over 30 people in web development, helping them secure their first jobs.",
+    ],
+  },
+];
