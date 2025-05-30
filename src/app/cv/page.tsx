@@ -1,31 +1,47 @@
 import type { Metadata } from "next";
+import type { StaticImageData } from "next/image";
 
 import Image from "next/image";
 
-import { ExperienceItem, TExperienceItem } from "./experience-item";
+import avatarSrc from "./images/avatar.jpg";
+import b6cloudSrc from "./images/b6cloud.jpeg";
+import exanteSrc from "./images/exante.jpeg";
+import pnuSrc from "./images/pnu.jpeg";
+import stecpointSrc from "./images/stecpoint.jpeg";
 
-import { EducationItem, TEducationItem } from "./education-item";
-import photo from "./images/avatar.jpg";
-import b6cloud from "./images/b6cloud.jpeg";
-import exante from "./images/exante.jpeg";
-import pnu from "./images/pnu.jpeg";
-import stecpoint from "./images/stecpoint.jpeg";
+type TEducationItem = {
+  logo: StaticImageData;
+  title: string;
+  schoolName: string;
+  duration: string;
+  bullets: string[];
+};
+
+type TExperienceItem = {
+  logo: StaticImageData;
+  position: string;
+  companyName: string;
+  duration: string;
+  location: string;
+  bullets: string[];
+  techStack: string;
+};
 
 export const metadata: Metadata = {
   title: "Ilya Evseev — Senior Frontend Engineer",
   description:
-    "Senior frontend engineer with 12 years of experience in building complex web applications, team leading, project management, and collaboration with stakeholders, resulting in business growth and delivering solutions that meet global standards.",
+    "Senior frontend engineer with over 12 years of experience in building complex web applications, team leading, project management, and collaboration with stakeholders, resulting in business growth and delivering solutions that meet global standards.",
 };
 
 export default function Page() {
   return (
-    <div className="mx-auto flex w-full max-w-3xl flex-col">
+    <div className="mx-auto flex w-full max-w-3xl flex-col p-6">
       <section>
         <div className="flex flex-row-reverse gap-8">
           <div className="relative h-40 w-40 overflow-hidden rounded-sm">
             <Image
               priority
-              src={photo}
+              src={avatarSrc}
               alt="Ilya Evseev's Photo"
               className="absolute"
               objectFit="cover"
@@ -74,7 +90,35 @@ export default function Page() {
         <h2 className="mb-6 text-2xl leading-none font-bold">Experience</h2>
         <div className="flex flex-col gap-6">
           {EXPERIENCE.map((experience) => (
-            <ExperienceItem key={experience.companyName} {...experience} />
+            <article key={experience.companyName} className="flex gap-4">
+              <Image
+                src={experience.logo}
+                alt=""
+                role="presentation"
+                loading="lazy"
+                className="h-12 w-12"
+              />
+              <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-2">
+                  <h3 className="text-lg leading-none font-bold">
+                    {experience.position}, {experience.companyName}
+                  </h3>
+                  <p className="leading-none">{experience.location}</p>
+                  <p className="leading-none">{experience.duration}</p>
+                </div>
+                <ul className="flex flex-col gap-1">
+                  {experience.bullets.map((item) => (
+                    <li className="leading-relaxed" key={item}>
+                      • {item}
+                    </li>
+                  ))}
+                </ul>
+                {/* <p className="leading-none">
+                    <span className="font-bold">Tech Stack: </span>
+                    {techStack}
+                  </p> */}
+              </div>
+            </article>
           ))}
         </div>
       </section>
@@ -83,7 +127,30 @@ export default function Page() {
         <h2 className="mb-6 text-2xl leading-none font-bold">Education</h2>
         <div className="flex flex-col gap-8">
           {EDUCATION.map((education) => (
-            <EducationItem key={education.schoolName} {...education} />
+            <article key={education.schoolName} className="flex gap-4">
+              <Image
+                src={education.logo}
+                alt=""
+                role="presentation"
+                loading="lazy"
+                className="h-12 w-12"
+              />
+              <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-2">
+                  <h3 className="text-lg leading-none font-bold">{education.title}</h3>
+                  <p className="leading-none">
+                    {education.schoolName}, {education.duration}
+                  </p>
+                </div>
+                <ul className="flex flex-col gap-1">
+                  {education.bullets.map((item) => (
+                    <li className="leading-relaxed" key={item}>
+                      • {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </article>
           ))}
         </div>
       </section>
@@ -127,7 +194,7 @@ export default function Page() {
 
 const EXPERIENCE: TExperienceItem[] = [
   {
-    logo: exante,
+    logo: exanteSrc,
     position: "Senior Frontend Developer",
     companyName: "Exante",
     duration: "Feb 2023 – Mar 2025 · 2 years",
@@ -139,7 +206,7 @@ const EXPERIENCE: TExperienceItem[] = [
     techStack: "React, Redux, Material UI, TypeScript",
   },
   {
-    logo: b6cloud,
+    logo: b6cloudSrc,
     position: "Founding Frontend Developer",
     companyName: "B6 Cloud",
     duration: "Feb 2020 – Jan 2023 · 3 years",
@@ -152,7 +219,7 @@ const EXPERIENCE: TExperienceItem[] = [
     techStack: "Next.js, Zustand, Ant Design, TypeScript",
   },
   {
-    logo: stecpoint,
+    logo: stecpointSrc,
     position: "Senior Frontend Developer",
     companyName: "StecPoint",
     duration: "Mar 2017 – Feb 2020 · 3 years",
@@ -193,7 +260,7 @@ const EXPERIENCE: TExperienceItem[] = [
 
 const EDUCATION: TEducationItem[] = [
   {
-    logo: pnu,
+    logo: pnuSrc,
     title: "BACs, Information Technology in Physics",
     schoolName: "Pacific National University",
     duration: "2013 – 2017 · 4 years",
