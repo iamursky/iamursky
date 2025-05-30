@@ -1,31 +1,15 @@
 "use client";
 
-import {
-  Document,
-  Font,
-  Image,
-  Page,
-  PDFViewer,
-  StyleSheet,
-  Text,
-  View,
-} from "@react-pdf/renderer";
+import type { FC } from "react";
 
-type TExperienceItem = {
-  logo: string;
-  title: string;
-  duration: string;
-  location: string;
-  bullets: string[];
-  techStack: string;
-};
+import { Document, Font, Image, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
+import dynamic from "next/dynamic";
 
-type TEducationItem = {
-  logo: string;
-  title: string;
-  subtitle: string;
-  bullets: string[];
-};
+// prettier-ignore
+const PDFViewer = dynamic(
+  () => import("@react-pdf/renderer").then((mod) => mod.PDFViewer),
+  { ssr: false }
+);
 
 Font.register({
   family: "Noto Serif",
@@ -41,9 +25,10 @@ Font.register({
   ],
 });
 
+// Disable hyphenation
 Font.registerHyphenationCallback((word) => [word]);
 
-export default function PDFPage() {
+export const PDFDocument: FC = () => {
   return (
     <PDFViewer style={styles.viewer}>
       <Document>
@@ -169,7 +154,7 @@ export default function PDFPage() {
       </Document>
     </PDFViewer>
   );
-}
+};
 
 const styles = StyleSheet.create({
   viewer: {
@@ -284,7 +269,14 @@ const styles = StyleSheet.create({
   },
 });
 
-const EXPERIENCE: TExperienceItem[] = [
+const EXPERIENCE: Array<{
+  logo: string;
+  title: string;
+  duration: string;
+  location: string;
+  bullets: string[];
+  techStack: string;
+}> = [
   {
     logo: "/images/exante.jpeg",
     title: "Senior Frontend Developer, Exante",
@@ -321,7 +313,12 @@ const EXPERIENCE: TExperienceItem[] = [
   },
 ];
 
-const EDUCATION: TEducationItem[] = [
+const EDUCATION: Array<{
+  logo: string;
+  title: string;
+  subtitle: string;
+  bullets: string[];
+}> = [
   {
     logo: "/images/pnu.jpeg",
     title: "BACs, Information Technology in Physics",
