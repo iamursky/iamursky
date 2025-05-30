@@ -31,7 +31,7 @@ Font.registerHyphenationCallback((word) => [word]);
 export const PDFDocument: FC = () => {
   return (
     <PDFViewer style={styles.viewer}>
-      <Document>
+      <Document title="Ilya Evseev - Senior Frontend Developer">
         <Page size="A4" style={styles.page}>
           <View style={styles.pageHeader}>
             <View style={styles.pageHeaderContent}>
