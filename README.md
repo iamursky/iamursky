@@ -1,6 +1,6 @@
 # Hi! I'm Ilya 👋
 
-I'm a frontend engineer with a decade of experience building a wide range of products — from startups to enterprise solutions. I specialize in React and TypeScript, delivering high-quality work in the face of changing business requirements.
+I'm a full-stack developer with a decade of experience building a wide range of products — from startups to enterprise solutions. I specialize in React and TypeScript, delivering high-quality work in the face of changing business requirements.
 
 ## How to Reach Me
 
