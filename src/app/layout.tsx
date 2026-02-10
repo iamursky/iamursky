@@ -11,8 +11,9 @@ const notoSerif = Noto_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Ilya Amursky",
-  description: "Software Engineer and Tech Entrepreneur",
+  title: "Ilya Evseev • Senior Full-Stack Engineer",
+  description:
+    "Senior full-stack engineer with 10+ years of experience in building complex web applications, team leading, project management, and collaboration with stakeholders, resulting in business growth and delivering solutions that meet global standards.",
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {
