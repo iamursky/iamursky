@@ -31,15 +31,16 @@ Font.registerHyphenationCallback((word) => [word]);
 export const CV: FC = () => {
   return (
     <PDFViewer style={styles.viewer}>
-      <Document title="Ilya Evseev • Senior Full-Stack Engineer" author="Ilya Evseev">
+      <Document title="Ilya Evseev • Senior Frontend Engineer" author="Ilya Evseev">
         <Page size="A4" style={styles.page}>
           <View style={styles.pageHeader}>
             <View style={styles.pageHeaderContent}>
-              <Text style={styles.pageTitle}>Ilya Evseev • Senior Full-Stack Engineer</Text>
+              <Text style={styles.pageTitle}>Ilya Evseev • Senior Frontend Engineer</Text>
               <Text>
-                Engineer with 10+ years of experience in building web applications, project
-                management, and collaboration with stakeholders, resulting in business growth and
-                delivering solutions that meet global standards.
+                Senior Frontend Engineer with 12 years of experience building complex, state-heavy
+                web applications with React and TypeScript. Proven track record of delivering work
+                end-to-end, working closely with founders, stakeholders, and shipping high-quality
+                products in fast-moving environments with evolving requirements.
               </Text>
             </View>
             <Image src="/images/avatar.jpg" style={styles.pageHeaderImage} />
@@ -51,7 +52,7 @@ export const CV: FC = () => {
               <View style={styles.skills}>
                 <View style={styles.skill}>
                   <Text style={styles.skillLabel}>Speak: </Text>
-                  <Text>English (Adanced, C1), Russian (Native)</Text>
+                  <Text>English (Advanced, C1), Russian (Native)</Text>
                 </View>
                 <View style={styles.skill}>
                   <Text style={styles.skillLabel}>Languages: </Text>
@@ -190,7 +191,7 @@ const styles = StyleSheet.create({
     fontFamily: "Noto Serif",
     fontSize: 12,
     lineHeight: 1.5,
-    padding: 24,
+    padding: 32,
   },
   pageTitle: {
     fontSize: 18,
@@ -201,6 +202,7 @@ const styles = StyleSheet.create({
   /* Page Header */
 
   pageHeader: {
+    marginBottom: 24,
     flexDirection: "row",
     gap: 24,
   },
@@ -208,15 +210,15 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   pageHeaderImage: {
-    width: 100,
-    height: 100,
+    width: 128,
+    height: 128,
     borderRadius: 4,
   },
 
   /* Section */
 
   section: {
-    marginTop: 32,
+    marginBottom: 24,
   },
   sectionTitle: {
     fontSize: 18,
