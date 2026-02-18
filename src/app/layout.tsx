@@ -11,9 +11,10 @@ const notoSerif = Noto_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Ilya Evseev • Senior Full-Stack Engineer",
+  title: "Ilya Evseev • Senior Frontend Developer",
   description:
-    "Senior full-stack engineer with 10+ years of experience in building complex web applications, team leading, project management, and collaboration with stakeholders, resulting in business growth and delivering solutions that meet global standards.",
+    "Senior Frontend Developer with 12 years of experience building complex, state-heavy web applications with React. Experience in project management, negotiations, and close colaboration with stakeholders to transform business requirements into solutions aligned with industry best practices and standards.",
+  keywords: ["frontend developer", "full stack developer", "react developer"],
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {
