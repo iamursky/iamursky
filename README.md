@@ -1,8 +1,10 @@
 # Hi! I'm Ilya 👋
 
-I'm a full-stack developer with a decade of experience building a wide range of products — from startups to enterprise solutions. I specialize in React and TypeScript, delivering high-quality work in the face of changing business requirements.
+I’m into custom mechanical keyboards and currently use a ZSA Moonlander while learning the Colemak Mod-DH layout. In my free time, I enjoy tinkering with Arduino and Raspberry Pi projects, reading about psychology and personal growth, and making electronic music.
 
 ## How to Reach Me
 
 * [LinkedIn](https://www.linkedin.com/in/iamursky/)
-* [Upwork](https://www.upwork.com/freelancers/~01a612ca43b89af5d4)
+* [Facebook](https://www.facebook.com/ilya.amursky)
+* [Instagram](https://www.instagram.com/ilya.amursky)
+* [X](https://x.com/iamursky)
