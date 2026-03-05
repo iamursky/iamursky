@@ -7,4 +7,4 @@ I’m into custom mechanical keyboards and currently use a [ZSA Moonlander](http
 * [LinkedIn](https://www.linkedin.com/in/iamursky/)
 * [Facebook](https://www.facebook.com/ilya.amursky)
 * [Instagram](https://www.instagram.com/ilya.amursky)
-* [X](https://x.com/iamursky)
+* [X / Twitter](https://x.com/iamursky)
