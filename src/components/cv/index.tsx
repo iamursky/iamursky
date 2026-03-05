@@ -184,8 +184,8 @@ const styles = StyleSheet.create({
     lineHeight: 1.55,
   },
   headerImage: {
-    width: 128,
-    height: 128,
+    width: 123,
+    height: 123,
     borderRadius: 4,
   },
 

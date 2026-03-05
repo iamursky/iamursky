@@ -5,7 +5,7 @@ export const HEADER: {
 } = {
   title: "Ilya Amursky • Senior Frontend Engineer",
   description:
-    "Senior Frontend Engineer with 12 years of experience building complex, state-heavy applications. Experience in project management, negotiations, and collaboration with stakeholders to transform business requirements into solutions aligned with industry best practices and standards.",
+    "Senior Frontend Engineer with 12 years of experience building complex, state-heavy applications. Deliver end-to-end solutions focused on user experience, performance, and maintainability. Collaborate with stakeholders and cross-functional teams to create products aligned with industry best practices and standards.",
   image: "/images/avatar.jpg",
 };
 
