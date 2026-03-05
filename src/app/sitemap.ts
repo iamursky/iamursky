@@ -5,6 +5,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: "https://amursky.com",
       lastModified: new Date(),
+      changeFrequency: "weekly",
+    },
+    {
+      url: "https://amursky.com/cv",
+      lastModified: new Date(),
       changeFrequency: "monthly",
     },
   ];

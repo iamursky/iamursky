@@ -3,9 +3,9 @@ export const HEADER: {
   description: string;
   image: string;
 } = {
-  title: "Ilya Evseev • Senior Frontend Engineer",
+  title: "Ilya Amursky • Senior Frontend Engineer",
   description:
-    "Senior Frontend Developer with 12 years of experience building complex, state-heavy web applications with React. Experience in project management, negotiations, and close colaboration with stakeholders to transform business requirements into solutions aligned with industry best practices and standards.",
+    "Senior Frontend Engineer with 12 years of experience building complex, state-heavy applications. Experience in project management, negotiations, and collaboration with stakeholders to transform business requirements into solutions aligned with industry best practices and standards.",
   image: "/images/avatar.jpg",
 };
 
@@ -45,7 +45,7 @@ export const CONTACTS: Array<{
 }> = [
   {
     label: "Email",
-    value: "ilia.evseev@icloud.com",
+    value: "ilya@amursky.com",
   },
   {
     label: "LinkedIn",

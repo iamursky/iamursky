@@ -33,7 +33,7 @@ Font.registerHyphenationCallback((word) => [word]);
 export const CV: FC = () => {
   return (
     <PDFViewer style={styles.viewer}>
-      <Document title={HEADER.title} author="Ilya Evseev">
+      <Document title={HEADER.title} author="Ilya Amursky">
         <Page size="A4" style={styles.page}>
           <View style={styles.header}>
             <View style={styles.headerContent}>
