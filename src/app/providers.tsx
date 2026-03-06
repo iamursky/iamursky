@@ -4,6 +4,7 @@ import type { FC, PropsWithChildren } from "react";
 
 import { getAnalytics, setAnalyticsCollectionEnabled } from "firebase/analytics";
 import { getApp, initializeApp } from "firebase/app";
+import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
 import { initializePerformance } from "firebase/performance";
 import { useEffect } from "react";
 
@@ -21,6 +22,14 @@ export const Providers: FC<PropsWithChildren> = ({ children }) => {
   useEffect(() => {
     const firebase = getApp();
 
+    // Initialize App Check with reCAPTCHA v3 and enable debug mode in development
+    self.FIREBASE_APPCHECK_DEBUG_TOKEN = process.env.NEXT_PUBLIC_FIREBASE_APP_CHECK_DEBUG_TOKEN;
+
+    initializeAppCheck(firebase, {
+      provider: new ReCaptchaV3Provider("6LeH_YEsAAAAAEaVbVngeZsvDIKhCzQy57sRhv_z"),
+      isTokenAutoRefreshEnabled: true,
+    });
+
     const isProduction = process.env.NODE_ENV === "production";
 
     // Disable analytics collection in development
@@ -35,3 +44,9 @@ export const Providers: FC<PropsWithChildren> = ({ children }) => {
 
   return children;
 };
+
+declare global {
+  interface Window {
+    FIREBASE_APPCHECK_DEBUG_TOKEN?: string;
+  }
+}
