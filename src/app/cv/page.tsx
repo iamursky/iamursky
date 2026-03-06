@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 
-import { CV } from "@/components/cv";
-import { HEADER } from "@/components/cv/data";
+import { Analytics } from "./analytics";
+import { CV } from "./cv";
+import { HEADER } from "./data";
 
 export const metadata: Metadata = {
   title: HEADER.title,
@@ -10,5 +11,10 @@ export const metadata: Metadata = {
 };
 
 export default function CVPage() {
-  return <CV />;
+  return (
+    <>
+      <CV />
+      <Analytics />
+    </>
+  );
 }

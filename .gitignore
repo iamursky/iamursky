@@ -9,6 +9,7 @@ npm-debug.log*
 # Next.js
 .next/
 out/
+*.local
 
 # TypeScript
 *.tsbuildinfo

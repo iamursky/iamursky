@@ -1,3 +1,5 @@
+import { Analytics } from "./analytics";
+
 export default function HomePage() {
-  return null;
+  return <Analytics />;
 }
