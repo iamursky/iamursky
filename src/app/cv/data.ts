@@ -33,10 +33,6 @@ export const SKILLS: Array<{
     label: "Databases",
     value: "PostgreSQL, MongoDB, Firestore",
   },
-  {
-    label: "Tools",
-    value: "Figma, Photoshop, Illustrator",
-  },
 ];
 
 export const CONTACTS: Array<{
@@ -89,7 +85,7 @@ export const EXPERIENCE: Array<{
   },
   {
     logo: "/images/b6cloud.jpeg",
-    title: "Founding Frontend Developer, B6 Cloud",
+    title: "Founding Full Stack Developer, B6 Cloud",
     duration: "Feb 2020 - Jan 2023 · 3 years",
     location: "United States · Remote · Contract",
     bullets: [
@@ -111,28 +107,28 @@ export const EXPERIENCE: Array<{
     ],
     techStack: "React, Redux, TypeScript, Syncfusion, Storybook",
   },
-  // {
-  //   logo: "/images/ksf.jpeg",
-  //   title: "Software Project Manager, KSF",
-  //   duration: "Sep 2016 - Feb 2017 · 6 months",
-  //   location: "Russia · On-Site · Contract",
-  //   bullets: [
-  //     "Secured the contract and led product development of an investment platform for a regional agricultural fund by pitching the project, working directly with stakeholders, and translating business needs into a clear product roadmap",
-  //     "Led a small cross-functional team and owned end-to-end frontend delivery from design to launch",
-  //     "Delivered a solution that enabled farmers to receive 100M+ RUB in funding and investments",
-  //   ],
-  //   techStack: "React, Redux, TypeScript",
-  // },
-  // {
-  //   logo: "/images/html-academy.jpeg",
-  //   title: "React and JavaScript Mentor, HTML Academy",
-  //   duration: "Jan 2014 - Jan 2017 · 3 years",
-  //   location: "Russia · Remote · Contract",
-  //   bullets: [
-  //     "Guided 23 students in mastering complex web development concepts in JavaScript and React.js, helping them successfully pass their final exams and get their first jobs",
-  //   ],
-  //   techStack: "React, JavaScript, HTML, CSS",
-  // },
+  {
+    logo: "/images/ksf.jpeg",
+    title: "Software Project Manager, KSF",
+    duration: "Sep 2016 - Feb 2017 · 6 months",
+    location: "Russia · On-Site · Contract",
+    bullets: [
+      "Secured the contract and led product development of an investment platform for a regional agricultural fund by pitching the project, working directly with stakeholders, and translating business needs into a clear product roadmap",
+      "Led a small cross-functional team and owned end-to-end frontend delivery from design to launch",
+      "Delivered a solution that enabled farmers to receive 100M+ RUB in funding and investments",
+    ],
+    techStack: "React, Redux, TypeScript",
+  },
+  {
+    logo: "/images/html-academy.jpeg",
+    title: "React and JavaScript Mentor, HTML Academy",
+    duration: "Jan 2014 - Jan 2017 · 3 years",
+    location: "Russia · Remote · Contract",
+    bullets: [
+      "Guided over 20 students in mastering complex web development concepts in JavaScript and React.js, helping them successfully pass their final exams and get their first jobs",
+    ],
+    techStack: "React, JavaScript, HTML, CSS",
+  },
 ];
 
 export const EDUCATION: Array<{
