@@ -7,7 +7,7 @@ import { HEADER } from "./data";
 export const metadata: Metadata = {
   title: HEADER.title,
   description: HEADER.description,
-  keywords: ["frontend developer", "full stack developer", "react developer"],
+  keywords: ["full stack engineer", "frontend engineer"],
 };
 
 export default function CVPage() {

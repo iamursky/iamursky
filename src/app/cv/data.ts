@@ -3,9 +3,9 @@ export const HEADER: {
   description: string;
   image: string;
 } = {
-  title: "Ilya Amursky • Senior Frontend Engineer",
+  title: "Ilya Amursky • Full Stack Engineer",
   description:
-    "Senior Frontend Engineer with 12 years of experience building complex, state-heavy applications. Deliver end-to-end solutions focused on user experience, performance, and maintainability. Collaborate with stakeholders and cross-functional teams to create products aligned with industry best practices and standards.",
+    "12 years of experience building complex, state-heavy applications using React and Node.js. Deliver end-to-end solutions with focus on user experience, performance, and maintainability. Collaborate with stakeholders and cross-functional teams to create products aligned with industry best practices and standards.",
   image: "/images/avatar.jpg",
 };
 
