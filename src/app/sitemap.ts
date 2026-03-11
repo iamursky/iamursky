@@ -7,10 +7,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "weekly",
     },
-    {
-      url: "https://amursky.com/cv",
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-    },
   ];
 }

@@ -8,7 +8,7 @@ export const Analytics = () => {
     const analytics = getAnalytics();
 
     logEvent(analytics, "page_view", {
-      page_title: "Home",
+      page_title: "Blog",
       page_location: window.location.href,
       page_path: window.location.pathname,
     });
