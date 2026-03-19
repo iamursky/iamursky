@@ -1,0 +1,17 @@
+# System
+.DS_Store
+Thumbs.db
+
+# NPM
+node_modules/
+npm-debug.log*
+
+# Vite
+dist/
+dist-ssr/
+*.local
+
+# VS Code
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
