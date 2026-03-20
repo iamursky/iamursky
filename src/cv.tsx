@@ -96,8 +96,8 @@ export const CV: FC = () => (
                 <View style={styles.contact}>
                   <Text style={styles.contactLabel}>Email: </Text>
                   <Text>
-                    <Link src="mailto:ilya.amursky@gmail.com" style={styles.contactValue}>
-                      ilya.amursky@gmail.com
+                    <Link src="mailto:ilya.amursky@icloud.com" style={styles.contactValue}>
+                      ilya.amursky@icloud.com
                     </Link>
                   </Text>
                 </View>
