@@ -1,6 +1,16 @@
 import type { FC } from "react";
 
-import { Document, Font, Link, Page, PDFViewer, StyleSheet, Text, View } from "@react-pdf/renderer";
+import {
+  Document,
+  Font,
+  Image,
+  Link,
+  Page,
+  PDFViewer,
+  StyleSheet,
+  Text,
+  View,
+} from "@react-pdf/renderer";
 
 Font.register({
   family: "Noto Serif",
@@ -19,10 +29,18 @@ export const CV: FC = () => (
         <View style={styles.content}>
           <View style={styles.main}>
             <View style={styles.mainSection}>
-              <Text style={[styles.h1, styles.headerFullName]}>Ilya Amursky</Text>
-              <Text style={[styles.h3, styles.headerRole]}>Senior Frontend Developer</Text>
+              <View style={styles.headerTopRow}>
+                <Image src="/images/avatar.jpeg" style={styles.headerAvatar} />
+                <View>
+                  <Text style={[styles.h1, styles.headerFullName]}>Ilya Amursky</Text>
+                  <Text style={[styles.h3, styles.headerRole]}>Senior Frontend Developer</Text>
+                </View>
+              </View>
               <Text style={styles.bio}>
-                Over 12 years of experience building complex, state-heavy applications using React and TypeScript. Delivered scalable, high-performance products used by thousands of users, improving operational efficiency, reducing processing time, and accelerating product delivery in regulated and enterprise environments.
+                Over 12 years of experience building complex, state-heavy applications using React
+                and TypeScript. Delivered scalable, high-performance products used by thousands of
+                users, improving operational efficiency, reducing processing time, and accelerating
+                product delivery in regulated and enterprise environments.
               </Text>
             </View>
             <View style={styles.mainSection}>
@@ -166,17 +184,28 @@ const styles = StyleSheet.create({
   },
 
   header: {},
+  headerTopRow: {
+    marginBottom: 4,
+    flexDirection: "row",
+    alignItems: "flex-end",
+  },
+  headerAvatar: {
+    width: 36,
+    height: 36,
+    borderRadius: 2,
+    marginRight: 8,
+  },
   headerFullName: {
-    marginBottom: 8,
+    marginBottom: 6,
   },
   headerRole: {
-    marginBottom: 4,
+    marginBottom: 1,
   },
 
   headerBio: {},
   bio: {
     marginTop: 6,
-    marginBottom: 4,
+    marginBottom: 5,
   },
 
   content: {
