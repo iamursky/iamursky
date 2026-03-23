@@ -192,7 +192,7 @@ const styles = StyleSheet.create({
   headerAvatar: {
     width: 36,
     height: 36,
-    borderRadius: 2,
+    borderRadius: 4,
     marginRight: 8,
   },
   headerFullName: {
