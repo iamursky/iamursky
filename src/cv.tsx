@@ -1,16 +1,6 @@
 import type { FC } from "react";
 
-import {
-  Document,
-  Font,
-  Image,
-  Link,
-  Page,
-  PDFViewer,
-  StyleSheet,
-  Text,
-  View,
-} from "@react-pdf/renderer";
+import { Document, Font, Link, Page, PDFViewer, StyleSheet, Text, View } from "@react-pdf/renderer";
 
 Font.register({
   family: "Noto Serif",
@@ -24,18 +14,13 @@ Font.registerHyphenationCallback((word) => [word]);
 
 export const CV: FC = () => (
   <PDFViewer style={styles.viewer}>
-    <Document title="Ilya Amursky - Senior Frontend Developer">
+    <Document title="Ilia Evseev - Senior Full-Stack Developer">
       <Page size="A4" style={styles.page}>
         <View style={styles.content}>
           <View style={styles.main}>
             <View style={styles.mainSection}>
-              <View style={styles.headerTopRow}>
-                <Image src="/images/avatar.jpeg" style={styles.headerAvatar} />
-                <View>
-                  <Text style={[styles.h1, styles.headerFullName]}>Ilya Amursky</Text>
-                  <Text style={[styles.h3, styles.headerRole]}>Senior Frontend Developer</Text>
-                </View>
-              </View>
+              <Text style={[styles.h1, styles.headerFullName]}>Ilia Evseev</Text>
+              <Text style={[styles.h3, styles.headerRole]}>Senior Full-Stack Developer</Text>
               <Text style={styles.bio}>
                 Over 12 years of experience building complex, state-heavy applications using React
                 and TypeScript. Delivered scalable, high-performance products used by thousands of
@@ -179,13 +164,13 @@ const styles = StyleSheet.create({
     padding: 16,
     backgroundColor: "#fff",
     fontFamily: "Noto Serif",
-    fontSize: 8.5,
+    fontSize: 10,
     lineHeight: 1.5,
+    color: "#000",
   },
 
   header: {},
   headerTopRow: {
-    marginBottom: 4,
     flexDirection: "row",
     alignItems: "flex-end",
   },
@@ -244,7 +229,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   experienceTitle: {
-    marginBottom: 8,
+    marginBottom: 4,
   },
   experience: {},
   experienceSubtitle: {},
@@ -278,7 +263,7 @@ const styles = StyleSheet.create({
   // Contacts
 
   contacts: {
-    gap: 2,
+    gap: 1.5,
   },
   contact: {
     display: "flex",
@@ -322,7 +307,7 @@ const SKILLS: {
 }[] = [
   {
     label: "Speak",
-    values: ["English (Advanced, C1)", "Russian (Native)"],
+    values: ["English (Advanced)", "Spanish (Basic)"],
   },
   {
     label: "Languages",
@@ -421,37 +406,37 @@ const EXPERIENCE: {
 }[] = [
   {
     title: "Senior Frontend Developer, Exante",
-    duration: "Feb 2023 - Mar 2025 · 2 years",
-    location: "United Kingdom · Remote · B2B Contract",
+    duration: "Feb 2023 - Present · 3 years",
+    location: "United Kingdom · Remote",
     bullets: [
       "Migrated KYC module from Vue.js to React under strict regulatory constraints, reducing completion time from 20 minutes to 10 minutes (-50%), based on funnel analysis of user drop-off points",
       "Developed a visual flow constructor for compliance teams, reducing update cycles from 2-3 days to same-day execution (~50%), eliminating developer dependency",
       "Analyzed onboarding funnels and user behavior to improve conversion rates and reduce abandonment across 100+ daily onboarding sessions",
     ],
-    techStack: "React, Redux, MUI (Material UI), Storybook",
+    techStack: "React, Redux, TypeScript, MUI (Material UI), Storybook",
   },
   {
-    title: "Founding Full Stack Developer, B6 Cloud",
+    title: "Chief Technology Officer, B6 Cloud",
     duration: "Feb 2020 - Jan 2023 · 3 years",
-    location: "United States · Remote · B2B Contract",
+    location: "United States · Remote",
     bullets: [
       "Partnered with the founder to define product strategy and architecture, contributing to product launch used by 150+ teams",
       "Built a collaborative rich-text editor with AI assistance, versioning, and policy tools, reducing document creation and approval time from 2 hours to 30 minutes (4x faster)",
       "Introduced product analytics (feature usage, interaction tracking, etc.) to inform roadmap decisions and optimize core workflows",
       "Improved workflow visibility by replacing manual status tracking with integrated task-document linking, reducing coordination overhead by 40-60% across teams",
     ],
-    techStack: "Next.js, TypeScript, Ant Design, Tiptap",
+    techStack: "Next.js, Node.js, Firebase, TypeScript, Ant Design, Tiptap",
   },
   {
-    title: "Senior Frontend Developer, StecPoint",
+    title: "Senior Full-Stack Developer, StecPoint",
     duration: "Mar 2017 - Feb 2020 · 3 years",
-    location: "United Kingdom · Remote · B2B Contract",
+    location: "United Kingdom · Remote",
     bullets: [
       "Led frontend development for a project management system used across 10+ concurrent construction projects and teams, improving on-time delivery from 60% to 75% (+25%)",
       "Delivered a real-time dashboard used by project managers and stakeholders, reducing reporting time from 1-2 days to minutes, enabling near real-time decision-making",
       "Defined and implemented key operational metrics and dashboards for cross-functional stakeholders (engineering, operations, management)",
     ],
-    techStack: "React, Redux, TypeScript, Syncfusion, Storybook",
+    techStack: "React, Redux, TypeScript, Python, Syncfusion, Storybook",
   },
 ];
 
@@ -462,10 +447,10 @@ const EDUCATION: {
 }[] = [
   {
     title: "BACs, Information Technology in Physics",
-    subtitle: "Russia, Pacific National University, 2013 - 2017 · 4 years",
+    subtitle: "Pacific National University, 2013 - 2017 · 4 years",
     bullets: [
       "Co-founded a student community, mentoring 30+ people in web development, helping them secure their first roles",
-      "Developed a mobile game in partnership with a major Russian mobile network carrier",
+      "Developed a mobile game in partnership with a major mobile network carrier",
     ],
   },
 ];
