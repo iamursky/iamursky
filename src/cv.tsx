@@ -14,120 +14,98 @@ Font.registerHyphenationCallback((word) => [word]);
 
 export const CV: FC = () => (
   <PDFViewer style={styles.viewer}>
-    <Document title="Ilia Evseev - Senior Full-Stack Developer">
+    <Document title="Ilia Evseev - Senior Frontend Developer">
       <Page size="A4" style={styles.page}>
-        <View style={styles.content}>
-          <View style={styles.main}>
-            <View style={styles.mainSection}>
-              <Text style={[styles.h1, styles.headerFullName]}>Ilia Evseev</Text>
-              <Text style={[styles.h3, styles.headerRole]}>Senior Full-Stack Developer</Text>
-              <Text style={styles.bio}>
-                Over 12 years of experience building complex, state-heavy applications using React
-                and TypeScript. Delivered scalable, high-performance products used by thousands of
-                users, improving operational efficiency, reducing processing time, and accelerating
-                product delivery in regulated and enterprise environments.
+        <View>
+          <Text style={styles.h1}>Ilia Evseev</Text>
+          <Text style={styles.h3}>Senior Frontend Developer</Text>
+          <Text style={styles.bio}>
+            Senior frontend engineer, 12 years with React and TypeScript. Rebuilt a KYC flow that
+            cut user completion time from 20 to 10 minutes, shipped compliance tooling,
+            collaborative editors, and enterprise dashboards. Focused on state-heavy UIs under
+            deadlines, regulatory constraints, and legacy code.
+          </Text>
+        </View>
+        <View>
+          <Text style={[styles.h2, styles.mainSectionTitle]}>Experience</Text>
+          <View style={styles.experiences}>
+            {EXPERIENCE.map((item) => (
+              <View key={item.title}>
+                <Text style={styles.h3}>{item.title}</Text>
+                <Text>{item.duration}</Text>
+                <Text>{item.location}</Text>
+                <View style={styles.experienceBullets}>
+                  {item.bullets.map((bullet, index) => (
+                    <Text key={index}>• {bullet}</Text>
+                  ))}
+                </View>
+                <View style={styles.experienceTechStack}>
+                  <Text style={styles.experienceTechStackLabel}>Tech Stack: </Text>
+                  <Text>{item.techStack}</Text>
+                </View>
+              </View>
+            ))}
+          </View>
+        </View>
+      </Page>
+      <Page size="A4" style={styles.page}>
+        <View>
+          <Text style={[styles.h2, styles.mainSectionTitle]}>Education</Text>
+          <View style={styles.educations}>
+            {EDUCATION.map((item) => (
+              <View key={item.title}>
+                <Text style={styles.h3}>{item.title}</Text>
+                <Text>{item.subtitle}</Text>
+                <View style={styles.educationBullets}>
+                  {item.bullets.map((bullet, index) => (
+                    <Text key={index}>• {bullet}</Text>
+                  ))}
+                </View>
+              </View>
+            ))}
+          </View>
+        </View>
+        <View>
+          <Text style={[styles.h2, styles.mainSectionTitle]}>Skills</Text>
+          <View style={styles.skills}>
+            {SKILLS.map((skill) => (
+              <View key={skill.label}>
+                <Text style={styles.skillLabel}>{skill.label}: </Text>
+                <Text>{skill.values.join(", ")}</Text>
+              </View>
+            ))}
+          </View>
+        </View>
+        <View>
+          <Text style={[styles.h2, styles.mainSectionTitle]}>Contacts</Text>
+          <View style={styles.contacts}>
+            <View style={styles.contact}>
+              <Text style={styles.contactLabel}>LinkedIn: </Text>
+              <Text>
+                <Link src="https://linkedin.com/in/ievseev" style={styles.contactValue}>
+                  linkedin.com/in/ievseev
+                </Link>
               </Text>
             </View>
-            <View style={styles.mainSection}>
-              <Text style={[styles.h2, styles.mainSectionTitle]}>Experience</Text>
-              <View style={styles.experiences}>
-                {EXPERIENCE.map((item) => (
-                  <View key={item.title} style={styles.experience}>
-                    <Text style={[styles.h3, styles.experienceTitle]}>{item.title}</Text>
-                    <Text style={styles.experienceSubtitle}>{item.location}</Text>
-                    <Text style={styles.experienceSubtitle}>{item.duration}</Text>
-                    <View style={styles.experienceBullets}>
-                      {item.bullets.map((bullet, index) => (
-                        <Text key={index} style={styles.experienceBullet}>
-                          • {bullet}
-                        </Text>
-                      ))}
-                    </View>
-                    <View style={styles.experienceTechStack}>
-                      <Text style={styles.experienceTechStackLabel}>Tech Stack: </Text>
-                      <Text style={styles.experienceTechStackValue}>{item.techStack}</Text>
-                    </View>
-                  </View>
-                ))}
-              </View>
+            <View style={styles.contact}>
+              <Text style={styles.contactLabel}>Email: </Text>
+              <Text>
+                <Link src="mailto:ilia.evseev@icloud.com" style={styles.contactValue}>
+                  ilia.evseev@icloud.com
+                </Link>
+              </Text>
             </View>
-            <View style={styles.mainSection}>
-              <Text style={[styles.h2, styles.mainSectionTitle]}>Education</Text>
-              <View style={styles.educations}>
-                {EDUCATION.map((item) => (
-                  <View key={item.title} style={styles.education}>
-                    <Text style={[styles.h3, styles.educationTitle]}>{item.title}</Text>
-                    <Text style={styles.educationSubtitle}>{item.subtitle}</Text>
-                    <View style={styles.educationBullets}>
-                      {item.bullets.map((bullet, index) => (
-                        <Text key={index} style={styles.educationBullet}>
-                          • {bullet}
-                        </Text>
-                      ))}
-                    </View>
-                  </View>
-                ))}
-              </View>
+            <View style={styles.contact}>
+              <Text style={styles.contactLabel}>Phone: </Text>
+              <Text>
+                <Link src="tel:+34696304732" style={styles.contactValue}>
+                  +34696304732
+                </Link>
+              </Text>
             </View>
-          </View>
-          <View style={styles.aside}>
-            <View style={styles.asideSection}>
-              <Text style={[styles.h2, styles.asideSectionTitle]}>Contacts</Text>
-              <View style={styles.contacts}>
-                <View style={styles.contact}>
-                  <Text style={styles.contactLabel}>Location: </Text>
-                  <Text style={styles.contactValue}>Barcelona, Spain</Text>
-                </View>
-                <View style={styles.contact}>
-                  <Text style={styles.contactLabel}>Email: </Text>
-                  <Text>
-                    <Link src="mailto:ilya.amursky@icloud.com" style={styles.contactValue}>
-                      ilya.amursky@icloud.com
-                    </Link>
-                  </Text>
-                </View>
-                <View style={styles.contact}>
-                  <Text style={styles.contactLabel}>Phone: </Text>
-                  <Text>
-                    <Link src="tel:+34696304732" style={styles.contactValue}>
-                      +34696304732
-                    </Link>
-                  </Text>
-                </View>
-                <View style={styles.contact}>
-                  <Text style={styles.contactLabel}>LinkedIn: </Text>
-                  <Text>
-                    <Link src="https://linkedin.com/in/iamursky" style={styles.contactValue}>
-                      linkedin.com/in/iamursky
-                    </Link>
-                  </Text>
-                </View>
-                <View style={styles.contact}>
-                  <Text style={styles.contactLabel}>GitHub: </Text>
-                  <Text>
-                    <Link src="https://github.com/iamursky" style={styles.contactValue}>
-                      github.com/iamursky
-                    </Link>
-                  </Text>
-                </View>
-              </View>
-            </View>
-            <View style={styles.asideSection}>
-              <Text style={[styles.h2, styles.asideSectionTitle]}>Skills</Text>
-              <View style={styles.skills}>
-                {SKILLS.map((skill) => (
-                  <View key={skill.label} style={styles.skill}>
-                    <Text style={styles.skillLabel}>{skill.label}: </Text>
-                    <View style={styles.skillValues}>
-                      {skill.values.map((value, index) => (
-                        <Text key={index} style={styles.skillValue}>
-                          {value}
-                        </Text>
-                      ))}
-                    </View>
-                  </View>
-                ))}
-              </View>
+            <View style={styles.contact}>
+              <Text style={styles.contactLabel}>Location: </Text>
+              <Text style={styles.contactValue}>Barcelona, Spain</Text>
             </View>
           </View>
         </View>
@@ -142,128 +120,88 @@ const styles = StyleSheet.create({
     height: "100vh",
   },
 
-  // Typography
-
-  h1: {
-    fontSize: 20,
-    fontWeight: "bold",
-    lineHeight: 1,
-  },
-  h2: {
-    fontSize: 16,
-    fontWeight: "bold",
-    lineHeight: 1,
-  },
-  h3: {
-    fontSize: 12,
-    fontWeight: "bold",
-    lineHeight: 1,
-  },
-
   page: {
-    padding: 16,
+    paddingVertical: 20,
+    paddingHorizontal: 40,
     backgroundColor: "#fff",
     fontFamily: "Noto Serif",
-    fontSize: 10,
+    fontSize: 10.5,
     lineHeight: 1.5,
     color: "#000",
+    gap: 16,
   },
 
-  header: {},
-  headerTopRow: {
-    flexDirection: "row",
-    alignItems: "flex-end",
+  h1: {
+    fontSize: 24.87,
+    fontWeight: "bold",
+    lineHeight: 1,
+    marginBottom: 12,
   },
-  headerAvatar: {
-    width: 36,
-    height: 36,
-    borderRadius: 4,
-    marginRight: 8,
+
+  h2: {
+    fontSize: 18.66,
+    fontWeight: "bold",
+    lineHeight: 1,
+    marginBottom: 12,
   },
-  headerFullName: {
+
+  h3: {
+    fontSize: 14,
+    fontWeight: "bold",
+    lineHeight: 1,
     marginBottom: 6,
   },
-  headerRole: {
-    marginBottom: 1,
-  },
 
-  headerBio: {},
   bio: {
-    marginTop: 6,
-    marginBottom: 5,
+    marginTop: 4,
   },
 
-  content: {
-    display: "flex",
-    flexDirection: "row",
-    gap: 24,
-  },
-
-  main: {
-    width: "65%",
-    gap: 8,
-  },
-  mainSection: {},
   mainSectionTitle: {
+    paddingBottom: 4,
     borderBottomWidth: 1,
-    borderBottomColor: "#bbb",
-    paddingBottom: 8,
-    marginBottom: 8,
-  },
-
-  aside: {
-    width: "35%",
-    gap: 8,
-  },
-  asideSection: {},
-  asideSectionTitle: {
-    borderBottomWidth: 1,
-    borderBottomColor: "#bbb",
-    paddingBottom: 8,
-    marginBottom: 8,
+    borderBottomColor: "#ccc",
   },
 
   // Experience
 
   experiences: {
-    gap: 8,
+    gap: 16,
   },
-  experienceTitle: {
-    marginBottom: 4,
-  },
-  experience: {},
-  experienceSubtitle: {},
   experienceBullets: {
-    marginVertical: 4,
+    marginTop: 8,
     gap: 4,
   },
-  experienceBullet: {},
   experienceTechStack: {
+    marginTop: 8,
     flexDirection: "row",
   },
   experienceTechStackLabel: {
     fontWeight: "bold",
   },
-  experienceTechStackValue: {},
 
   // Education
 
-  educations: {},
-  education: {},
-  educationTitle: {
-    marginBottom: 8,
+  educations: {
+    gap: 8,
   },
-  educationSubtitle: {},
   educationBullets: {
     marginVertical: 4,
     gap: 4,
   },
-  educationBullet: {},
+
+  // Skills
+
+  skills: {
+    gap: 8,
+  },
+  skillLabel: {
+    fontWeight: "bold",
+  },
 
   // Contacts
 
   contacts: {
-    gap: 1.5,
+    gap: 4,
   },
   contact: {
     display: "flex",
@@ -276,29 +214,6 @@ const styles = StyleSheet.create({
     textDecoration: "none",
     color: "inherit",
   },
-
-  // Skills
-
-  skills: {
-    gap: 8,
-  },
-  skill: {
-    gap: 4,
-  },
-  skillLabel: {
-    fontWeight: "bold",
-  },
-  skillValues: {
-    display: "flex",
-    flexDirection: "row",
-    flexWrap: "wrap",
-    gap: 4,
-  },
-  skillValue: {
-    padding: "2px 4px",
-    borderRadius: 16,
-    backgroundColor: "#eee",
-  },
 });
 
 const SKILLS: {
@@ -307,7 +222,7 @@ const SKILLS: {
 }[] = [
   {
     label: "Speak",
-    values: ["English (Advanced)", "Spanish (Basic)"],
+    values: ["English (Advanced)"],
   },
   {
     label: "Languages",
@@ -407,36 +322,36 @@ const EXPERIENCE: {
   {
     title: "Senior Frontend Developer, Exante",
     duration: "Feb 2023 - Present · 3 years",
-    location: "United Kingdom · Remote",
+    location: "Cyprus · Remote",
     bullets: [
-      "Migrated KYC module from Vue.js to React under strict regulatory constraints, reducing completion time from 20 minutes to 10 minutes (-50%), based on funnel analysis of user drop-off points",
-      "Developed a visual flow constructor for compliance teams, reducing update cycles from 2-3 days to same-day execution (~50%), eliminating developer dependency",
-      "Analyzed onboarding funnels and user behavior to improve conversion rates and reduce abandonment across 100+ daily onboarding sessions",
+      "Migrated KYC module from Vue.js to React under regulatory constraints; analyzed funnel drop-offs and cut user completion time from 20 to 10 minutes",
+      "Built a visual flow constructor that lets compliance teams update KYC logic in hours instead of 2-3 days, removing the developer bottleneck",
+      "Ran funnel analysis across 100 daily onboarding sessions; findings drove UI changes that cut drop-off at the document upload step by 25%",
     ],
     techStack: "React, Redux, TypeScript, MUI (Material UI), Storybook",
   },
   {
-    title: "Chief Technology Officer, B6 Cloud",
+    title: "Senior Frontend Developer, B6 Cloud",
     duration: "Feb 2020 - Jan 2023 · 3 years",
     location: "United States · Remote",
     bullets: [
-      "Partnered with the founder to define product strategy and architecture, contributing to product launch used by 150+ teams",
-      "Built a collaborative rich-text editor with AI assistance, versioning, and policy tools, reducing document creation and approval time from 2 hours to 30 minutes (4x faster)",
-      "Introduced product analytics (feature usage, interaction tracking, etc.) to inform roadmap decisions and optimize core workflows",
-      "Improved workflow visibility by replacing manual status tracking with integrated task-document linking, reducing coordination overhead by 40-60% across teams",
+      "Partnered with the founder on product strategy and architecture; shipped the first release, now used by 150 teams",
+      "Built a collaborative rich-text editor with AI assistance, versioning, and policy tools; cut document creation and approval from 2 hours to 30 minutes",
+      "Introduced feature-usage and interaction tracking; used the data to prioritize the roadmap and simplify core workflows",
+      "Replaced manual status tracking with task-document linking, cutting cross-team coordination overhead by 50%",
     ],
-    techStack: "Next.js, Node.js, Firebase, TypeScript, Ant Design, Tiptap",
+    techStack: "React, Next.js, Node.js, TypeScript, Firebase, Ant Design, Storybook",
   },
   {
-    title: "Senior Full-Stack Developer, StecPoint",
+    title: "Middle Frontend Developer, StecPoint",
     duration: "Mar 2017 - Feb 2020 · 3 years",
     location: "United Kingdom · Remote",
     bullets: [
-      "Led frontend development for a project management system used across 10+ concurrent construction projects and teams, improving on-time delivery from 60% to 75% (+25%)",
-      "Delivered a real-time dashboard used by project managers and stakeholders, reducing reporting time from 1-2 days to minutes, enabling near real-time decision-making",
-      "Defined and implemented key operational metrics and dashboards for cross-functional stakeholders (engineering, operations, management)",
+      "Led frontend development for a project management system running 10 concurrent construction projects; on-time delivery rose from 60% to 75%",
+      "Shipped a real-time dashboard for project managers and stakeholders, cutting reporting time from 1-2 days to minutes",
+      "Defined operational metrics and built dashboards for engineering, operations, and management teams",
     ],
-    techStack: "React, Redux, TypeScript, Python, Syncfusion, Storybook",
+    techStack: "React, Redux, TypeScript, Python, Syncfusion",
   },
 ];
 
@@ -449,8 +364,8 @@ const EDUCATION: {
     title: "BACs, Information Technology in Physics",
     subtitle: "Pacific National University, 2013 - 2017 · 4 years",
     bullets: [
-      "Co-founded a student community, mentoring 30+ people in web development, helping them secure their first roles",
-      "Developed a mobile game in partnership with a major mobile network carrier",
+      "Co-founded a student community; mentored 30 people in web development, most of whom landed their first developer roles",
+      "Developed a mobile game in partnership with MTS, one of the largest mobile network carriers in Russia",
     ],
   },
 ];
