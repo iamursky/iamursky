@@ -1,44 +1,34 @@
-import type { FC } from "react";
+import type { FC, ReactNode } from "react";
 
 import { Document, Font, Link, Page, PDFViewer, StyleSheet, Text, View } from "@react-pdf/renderer";
-
-Font.register({
-  family: "Noto Serif",
-  fonts: [
-    { src: "/fonts/NotoSerif-Regular.ttf", fontWeight: "normal" },
-    { src: "/fonts/NotoSerif-Bold.ttf", fontWeight: "bold" },
-  ],
-});
 
 Font.registerHyphenationCallback((word) => [word]);
 
 export const CV: FC = () => (
   <PDFViewer style={styles.viewer}>
-    <Document title="Ilia Evseev - Senior Frontend Developer">
+    <Document title="Ilia Evseev - Senior Full-Stack Engineer">
       <Page size="A4" style={styles.page}>
         <View>
           <Text style={styles.h1}>Ilia Evseev</Text>
-          <Text style={styles.h3}>Senior Frontend Developer</Text>
+          <Text style={styles.h3}>Senior Full-Stack Engineer</Text>
           <Text style={styles.bio}>
-            Senior frontend engineer, 12 years with React and TypeScript. Rebuilt a KYC flow that
-            cut user completion time from 20 to 10 minutes, shipped compliance tooling,
-            collaborative editors, and enterprise dashboards. Focused on state-heavy UIs under
-            deadlines, regulatory constraints, and legacy code.
+            Senior full-stack engineer, 12+ years with React, React Native, Node.js and TypeScript.
+            Shipped KYC, compliance tooling, collaborative editors, and enterprise dashboards for
+            products used by thousands of users. Focused on state-heavy UI development under real
+            constraints: deadlines, compliance, or legacy code.
           </Text>
         </View>
         <View>
           <Text style={[styles.h2, styles.mainSectionTitle]}>Experience</Text>
           <View style={styles.experiences}>
-            {EXPERIENCE.map((item) => (
+            {EXPERIENCE.slice(0, 2).map((item) => (
               <View key={item.title}>
                 <Text style={styles.h3}>{item.title}</Text>
-                <Text>{item.duration}</Text>
-                <Text>{item.location}</Text>
-                <View style={styles.experienceBullets}>
-                  {item.bullets.map((bullet, index) => (
-                    <Text key={index}>• {bullet}</Text>
-                  ))}
+                <View style={{ gap: 0, marginBottom: 8 }}>
+                  <Text style={{ color: "#666", fontSize: 10.5 }}>{item.location}</Text>
+                  <Text style={{ color: "#666", fontSize: 10.5 }}>{item.duration}</Text>
                 </View>
+                <View>{item.description}</View>
                 <View style={styles.experienceTechStack}>
                   <Text style={styles.experienceTechStackLabel}>Tech Stack: </Text>
                   <Text>{item.techStack}</Text>
@@ -46,6 +36,24 @@ export const CV: FC = () => (
               </View>
             ))}
           </View>
+        </View>
+      </Page>
+      <Page size="A4" style={styles.page}>
+        <View style={styles.experiences}>
+          {EXPERIENCE.slice(2).map((item) => (
+            <View key={item.title}>
+              <Text style={styles.h3}>{item.title}</Text>
+              <View style={{ gap: 0, marginBottom: 8 }}>
+                <Text style={{ color: "#666", fontSize: 10.5 }}>{item.location}</Text>
+                <Text style={{ color: "#666", fontSize: 10.5 }}>{item.duration}</Text>
+              </View>
+              <View>{item.description}</View>
+              <View style={styles.experienceTechStack}>
+                <Text style={styles.experienceTechStackLabel}>Tech Stack: </Text>
+                <Text>{item.techStack}</Text>
+              </View>
+            </View>
+          ))}
         </View>
       </Page>
       <Page size="A4" style={styles.page}>
@@ -124,9 +132,9 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     paddingHorizontal: 40,
     backgroundColor: "#fff",
-    fontFamily: "Noto Serif",
-    fontSize: 10.5,
-    lineHeight: 1.5,
+    fontFamily: "Times-Roman",
+    fontSize: 13,
+    lineHeight: 1.3,
     color: "#000",
     gap: 16,
   },
@@ -167,9 +175,8 @@ const styles = StyleSheet.create({
   experiences: {
     gap: 16,
   },
-  experienceBullets: {
-    marginTop: 8,
-    gap: 4,
+  experienceDescription: {
+    marginTop: 4,
   },
   experienceTechStack: {
     marginTop: 8,
@@ -221,20 +228,20 @@ const SKILLS: {
   values: string[];
 }[] = [
   {
-    label: "Speak",
-    values: ["English (Advanced)"],
+    label: "Spoken Languages",
+    values: ["English (Advanced)", "Spanish (Elementary)", "Russian (Native)"],
   },
   {
-    label: "Languages",
+    label: "Programming Languages",
     values: ["TypeScript", "JavaScript", "HTML5", "CSS3"],
   },
   {
     label: "Frameworks",
     values: [
       "React",
+      "React Native",
       "Next.js",
-      "Vue.js",
-      "Angular",
+      "Expo",
       "Redux",
       "Tailwind",
       "Node.js",
@@ -278,7 +285,6 @@ const SKILLS: {
     values: [
       "REST",
       "GraphQL",
-      "Microservices",
       "Serverless",
       "SQL",
       "NoSQL",
@@ -286,6 +292,8 @@ const SKILLS: {
       "Amazon RDS",
       "DynamoDB",
       "Firestore",
+      "OpenAI API",
+      "Anthropic Claude API",
     ],
   },
   {
@@ -304,7 +312,6 @@ const SKILLS: {
       "Unit Tests",
       "E2E Tests",
       "Integration Tests",
-      "Code Review",
       "Storybook",
       "Figma",
       "Adobe XD",
@@ -312,46 +319,152 @@ const SKILLS: {
   },
 ];
 
+const BulletPoints: FC<{ title?: string; items: string[] }> = ({ title, items }) => (
+  <View style={{ gap: 4 }}>
+    {title && <Text style={{ fontWeight: "bold" }}>{title}:</Text>}
+    <View style={{ gap: 4 }}>
+      {items.map((item, index) => (
+        <Text key={index}>• {item}</Text>
+      ))}
+    </View>
+  </View>
+);
+
 const EXPERIENCE: {
   title: string;
   duration: string;
   location: string;
-  bullets: string[];
+  description: ReactNode;
   techStack: string;
 }[] = [
   {
-    title: "Senior Frontend Developer, Exante",
-    duration: "Feb 2023 - Present · 3 years",
-    location: "Cyprus · Remote",
-    bullets: [
-      "Migrated KYC module from Vue.js to React under regulatory constraints; analyzed funnel drop-offs and cut user completion time from 20 to 10 minutes",
-      "Built a visual flow constructor that lets compliance teams update KYC logic in hours instead of 2-3 days, removing the developer bottleneck",
-      "Ran funnel analysis across 100 daily onboarding sessions; findings drove UI changes that cut drop-off at the document upload step by 25%",
-    ],
+    title: "Senior Full-Stack Engineer",
+    location: "Self-employed · Spain · Remote",
+    duration: "Feb 2025 - Present · 1 year",
+    description: (
+      <View style={{ gap: 8 }}>
+        <Text>I build full-stack web and mobile apps for early-stage startups.</Text>
+
+        <BulletPoints
+          title="Three kinds of work"
+          items={[
+            "MVPs with hard deadlines. Working software in 2 weeks, full launch in 6 to 10.",
+            "Rescue jobs. Codebases inherited from a previous developer who left mid-build.",
+            "AI features with real product logic, not thin OpenAI wrappers.",
+          ]}
+        />
+
+        <View style={{ gap: 4 }}>
+          <Text style={{ fontWeight: "bold" }}>Recent work:</Text>
+          <View style={{ gap: 4 }}>
+            <Text>
+              • Mileva — government-facing platform for licensed building managers in Serbia. Two
+              React Native apps live on the Google Play and App Store:{" "}
+              <Link
+                style={{ color: "inherit" }}
+                src="https://apps.apple.com/es/app/mileva-stanari/id6755151380?l=en-GB"
+              >
+                Mileva: Stanari
+              </Link>{" "}
+              and{" "}
+              <Link
+                style={{ color: "inherit" }}
+                src="https://apps.apple.com/es/app/upravljaj-upravnikom/id6748305732?l=en-GB"
+              >
+                Upravljaj Upravnikom
+              </Link>
+              .
+            </Text>
+            <Text>
+              •{" "}
+              <Link style={{ color: "inherit" }} src="https://www.gptgirlfriend.online">
+                GirlfriendGPT
+              </Link>{" "}
+              — consumer AI app. Built on Next.js, Node, and custom AI models running on RunPod.
+              Scaled to thousands of daily users with conversation memory, prompt logic, and content
+              moderation.
+            </Text>
+          </View>
+        </View>
+
+        <Text>
+          How I work: fixed-price milestones, not hourly. I read the brief before the call, ask the
+          questions that matter, and ship every two weeks. Most engagements run 1 to 3 months.
+        </Text>
+      </View>
+    ),
+    techStack: "React, React Native, Next.js, TypeScript, Node.js, Supabase, Firebase, AWS, GCP",
+  },
+  {
+    title: "Senior Frontend Engineer",
+    location: "Exante · Cyprus · Remote",
+    duration: "Feb 2023 - Feb 2025 · 2 years",
+    description: (
+      <View>
+        <BulletPoints
+          items={[
+            "Redesigned and rebuilt the KYC module under strict regulatory deadlines, migrating from Vue to React and reducing average completion time by 30%.",
+            "Delivered a configurable KYC flow with a visual constructor that lets the compliance team update rules, steps, and validations without engineering. Change cycle dropped from weeks to hours.",
+            "Worked under audit-grade release discipline at a UK-regulated brokerage. MiFID II and Market Abuse certified through the role.",
+          ]}
+        />
+      </View>
+    ),
     techStack: "React, Redux, TypeScript, MUI (Material UI), Storybook",
   },
   {
-    title: "Senior Frontend Developer, B6 Cloud",
+    title: "Founding Full-Stack Engineer",
+    location: "B6 Cloud · United States · Remote",
     duration: "Feb 2020 - Jan 2023 · 3 years",
-    location: "United States · Remote",
-    bullets: [
-      "Partnered with the founder on product strategy and architecture; shipped the first release, now used by 150 teams",
-      "Built a collaborative rich-text editor with AI assistance, versioning, and policy tools; cut document creation and approval from 2 hours to 30 minutes",
-      "Introduced feature-usage and interaction tracking; used the data to prioritize the roadmap and simplify core workflows",
-      "Replaced manual status tracking with task-document linking, cutting cross-team coordination overhead by 50%",
-    ],
+    description: (
+      <View>
+        <BulletPoints
+          items={[
+            "Joined as a founding engineer. Shipped the product from prototype through acquisition by Atlassian in 2023.",
+            "Built a rich-text editor with real-time collaboration, version history, and policy-management workflows. Customers reviewed and approved documents 2x faster.",
+            "Built a spreadsheet editor that helped project-management customers migrate off legacy tools and modernize their workflows.",
+            "Implemented a Kanban board with bidirectional linking between tasks and documents, making status updates instant and transparent.",
+            "Shipped AI features into the editor: structured tagging, summarization, and natural-language commands grounded on customer content.",
+            "Worked closely with the founder on product strategy and key engineering decisions.",
+          ]}
+        />
+      </View>
+    ),
     techStack: "React, Next.js, Node.js, TypeScript, Firebase, Ant Design, Storybook",
   },
   {
-    title: "Middle Frontend Developer, StecPoint",
+    title: "Middle Frontend Engineer",
+    location: "StecPoint · United Kingdom · Remote",
     duration: "Mar 2017 - Feb 2020 · 3 years",
-    location: "United Kingdom · Remote",
-    bullets: [
-      "Led frontend development for a project management system running 10 concurrent construction projects; on-time delivery rose from 60% to 75%",
-      "Shipped a real-time dashboard for project managers and stakeholders, cutting reporting time from 1-2 days to minutes",
-      "Defined operational metrics and built dashboards for engineering, operations, and management teams",
-    ],
+    description: (
+      <View>
+        <BulletPoints
+          items={[
+            "Owned frontend development of a project management system used by a large construction company on multi-million-dollar projects. On-time delivery improved by 25%.",
+            "Built a real-time dashboard that cut reporting time from days to minutes, enabling near-instant feedback loops.",
+            "Led the migration of the legacy frontend to React and Redux, establishing the patterns the team uses today.",
+          ]}
+        />
+      </View>
+    ),
     techStack: "React, Redux, TypeScript, Python, Syncfusion",
+  },
+  {
+    title: "Full-Stack Engineer",
+    location: "Regional Agricultural Fund · Russia · On-Site",
+    duration: "Sep 2016 - Feb 2017 · 6 mos",
+    description: (
+      <View>
+        <BulletPoints
+          items={[
+            "Won a regional contest by pitching an investment platform concept. Signed the contract and shipped the platform in 2 months.",
+            "Owned end-to-end delivery: design, frontend, backend, and stakeholder communication. Led a small cross-functional team.",
+            "Platform enabled the fund to disburse 100M+ RUB to farmers in funding and investments.",
+          ]}
+        />
+      </View>
+    ),
+    techStack: "React, Redux, TypeScript",
   },
 ];
 
@@ -361,8 +474,8 @@ const EDUCATION: {
   bullets: string[];
 }[] = [
   {
-    title: "BACs, Information Technology in Physics",
-    subtitle: "Pacific National University, 2013 - 2017 · 4 years",
+    title: "BASc, Information Technology",
+    subtitle: "Pacific National University, 2013 - 2018 · 5 years",
     bullets: [
       "Co-founded a student community; mentored 30 people in web development, most of whom landed their first developer roles",
       "Developed a mobile game in partnership with MTS, one of the largest mobile network carriers in Russia",
