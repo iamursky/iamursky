@@ -2,6 +2,11 @@ import type { FC, ReactNode } from "react";
 
 import { Document, Font, Link, Page, PDFViewer, StyleSheet, Text, View } from "@react-pdf/renderer";
 
+Font.register({
+  family: "Times",
+  src: "/times.ttf",
+});
+
 Font.registerHyphenationCallback((word) => [word]);
 
 export const CV: FC = () => (
@@ -132,7 +137,7 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     paddingHorizontal: 40,
     backgroundColor: "#fff",
-    fontFamily: "Times-Roman",
+    fontFamily: "Times",
     fontSize: 13,
     lineHeight: 1.3,
     color: "#000",
