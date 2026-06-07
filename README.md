@@ -1,6 +1,6 @@
 # Hi, I'm Ilya
 
-Entrepreneur and full-stack developer. Tinkering with Arduino and Raspberry Pi, and making electronic music. Learning Colemak Mod-DH on a ZSA Moonlander with a self-built typing trainer [KeyDown](https://keydown.io/).
+Entrepreneur and full-stack developer. Tinkering with Arduino and Raspberry Pi. Learning Colemak Mod-DH on a ZSA Moonlander with a self-built typing trainer [KeyDown](https://keydown.io/).
 
 **Preferred stack:**
 * React (Next.js)
