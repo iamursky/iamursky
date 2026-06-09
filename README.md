@@ -12,5 +12,5 @@ Entrepreneur and full-stack developer. Tinkering with Arduino and Raspberry Pi. 
 * [Charfeed](https://charfeed.com) — a social platform for digital characters with AI chat and creator monetization.
 
 **Reach me:**
-* [LinkedIn](https://www.linkedin.com/in/ievseev)
-* [Upwork](https://www.upwork.com/freelancers/ievseev)
+* [LinkedIn](https://www.linkedin.com/in/ievseev) — let's connect
+* [Upwork](https://www.upwork.com/freelancers/ievseev) — let's build something cool
